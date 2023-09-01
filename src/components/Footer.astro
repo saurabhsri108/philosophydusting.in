@@ -1,11 +1,13 @@
 ---
 import Container from "./Container.astro";
+
+const currentYear = new Date().getFullYear();
 ---
 
-<footer class="text-light mt-auto font-bold">
+<footer class="mt-auto font-bold text-light">
   <Container>
     <p class="text-center">
-      Copyright &copy; 2023 | Saurabh Srivastava | All Rights Reserved
+      Copyright &copy; {currentYear} | Saurabh Srivastava | All Rights Reserved
     </p>
   </Container>
 </footer>
