@@ -27,7 +27,9 @@ import Footer from "../components/Footer.astro";
     />
     <title>{title}</title>
   </head>
-  <body class="flex h-[100%] flex-col bg-dark font-sans text-bodytext">
+  <body
+    class="relative flex h-[100%] flex-col bg-light font-sans text-dark dark:bg-dark dark:text-bodytext"
+  >
     <Header />
     <slot />
     <Footer />

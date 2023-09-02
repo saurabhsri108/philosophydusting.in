@@ -3,12 +3,23 @@ import Container from "./Container.astro";
 import Navigation from "./Navigation.astro";
 ---
 
-<header class="text-light">
-  <Container>
-    <a href="/" class="flex flex-col font-sans text-2xl font-bold">
-      <span>philosophy</span>
-      <span>dusting</span>
-    </a>
-    <Navigation />
+<header class="dark:text-light">
+  <Container customClasses="flex justify-between items-center">
+    <section
+      class="flex flex-1 items-center justify-between gap-12 md:flex-none"
+    >
+      <a href="/" class="flex flex-col font-sans text-2xl font-bold leading-7">
+        <span>philosophy</span>
+        <span>dusting</span>
+      </a>
+      <Navigation />
+    </section>
+    <section class="md:flex-3 hidden md:flex">
+      <a
+        href="/sign-up"
+        class="rounded-sm px-6 py-3 font-bold dark:bg-light dark:text-dark"
+        >Sign up to newsletter</a
+      >
+    </section>
   </Container>
 </header>

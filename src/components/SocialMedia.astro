@@ -1,0 +1,14 @@
+---
+const socials = [{ platform: "twitter", username: "codedusting" }];
+---
+
+{
+  socials.map((social) => (
+    <a
+      href={`https://www.${social.platform}.com/${social.username}`}
+      target="_blank"
+    >
+      {social.platform}
+    </a>
+  ))
+}

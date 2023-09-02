@@ -1,0 +1,22 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Container from "../../components/Container.astro";
+
+const blogs = await Astro.glob("./*.md");
+---
+
+<Layout title="Blogs | Philosophy Dusting">
+  <Container customClasses="flex-1">
+    <section class="flex h-full flex-col items-center justify-center gap-1">
+      <h1 class="text-2xl font-bold dark:text-light">blogs</h1>
+      <p class="text-left text-lg font-bold">read, write, repeat</p>
+      {
+        blogs?.map((blog) => (
+          <li>
+            <a href={blog.url}>{blog.frontmatter.title}</a>
+          </li>
+        ))
+      }
+    </section>
+  </Container>
+</Layout>

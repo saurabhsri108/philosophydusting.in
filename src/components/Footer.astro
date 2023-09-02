@@ -1,13 +1,17 @@
 ---
 import Container from "./Container.astro";
+import SocialMedia from "./SocialMedia.astro";
 
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="mt-auto font-bold text-light">
-  <Container>
+<footer class="mt-auto font-bold dark:text-light">
+  <Container customClasses="flex flex-col gap-1">
     <p class="text-center">
       Copyright &copy; {currentYear} | Saurabh Srivastava | All Rights Reserved
+    </p>
+    <p class="text-center">
+      <SocialMedia />
     </p>
   </Container>
 </footer>

@@ -1,11 +1,15 @@
 ---
-
+import Hamburger from "./Hamburger.astro";
 ---
 
-<nav>
-  <ul>
+<nav id="navList">
+  <Hamburger />
+  <ul
+    id="mobileNavigation"
+    class="hidden text-bodytext md:flex md:gap-2 md:text-lg"
+  >
     <li>
-      <a href="/">Home</a>
+      <a href="/" class="font-bold text-light">Home</a>
     </li>
     <li>
       <a href="/about">About</a>
@@ -13,5 +17,16 @@
     <li>
       <a href="/blogs">Blogs</a>
     </li>
+    <li>
+      <a
+        href="/sign-up"
+        class="rounded-sm px-6 py-3 font-bold dark:bg-light dark:text-dark md:hidden"
+        >Sign up to newsletter</a
+      >
+    </li>
   </ul>
 </nav>
+
+<script>
+  import "../scripts/hamburger";
+</script>
