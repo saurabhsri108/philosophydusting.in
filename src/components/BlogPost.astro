@@ -1,0 +1,26 @@
+---
+import { Image } from "astro:assets";
+type Props = {
+  blogUrl: string;
+  alt: string;
+  title: string;
+  category: string;
+  datepublished: string;
+  author: string;
+};
+const { blogUrl, alt, title, category, datepublished, author } = Astro.props;
+import image from "../images/debates.jpg";
+---
+
+<section>
+  <Image src={image} alt={alt} width="288" height="168" />
+  <div>
+    <h1>{title}</h1>
+    <p>
+      <span>{datepublished}</span> | <span>{author}</span> | <span
+        >{category}</span
+      >
+    </p>
+    <a href={blogUrl}>Open this blog</a>
+  </div>
+</section>

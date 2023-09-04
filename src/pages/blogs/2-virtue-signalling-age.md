@@ -4,9 +4,10 @@ layout: "../../layouts/BlogLayout.astro"
 pubDate: 2023-09-02
 description: "We live in the age of virtue signalling"
 author: "Saurabh Srivastava"
-image: { url: "", alt: "" }
+image: { url: "../assets/images/debates.jpg", alt: "Labels in debates" }
 url: "https://docs.astro.build/assets/full-logo-light.png"
 alt: "The full Astro logo."
+category: "learninglive"
 tags:
   [
     "phisolophydusting",

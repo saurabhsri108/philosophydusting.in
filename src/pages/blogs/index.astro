@@ -1,8 +1,17 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Container from "../../components/Container.astro";
+import type { MarkdownInstance } from "astro";
+import BlogPost from "../../components/BlogPost.astro";
 
-const blogs = await Astro.glob("./*.md");
+let blogs: MarkdownInstance<Record<string, any>>[] = [];
+let areBlogsPresent = false;
+try {
+  blogs = await Astro.glob("./*.md");
+  areBlogsPresent = Boolean(blogs.length);
+} catch (err) {
+  console.error("No blogs found...");
+}
 ---
 
 <Layout title="Blogs | Philosophy Dusting">
@@ -11,11 +20,27 @@ const blogs = await Astro.glob("./*.md");
       <h1 class="text-2xl font-bold dark:text-light">blogs</h1>
       <p class="text-left text-lg font-bold">read, write, repeat</p>
       {
-        blogs?.map((blog) => (
-          <li>
-            <a href={blog.url}>{blog.frontmatter.title}</a>
-          </li>
-        ))
+        areBlogsPresent &&
+          blogs.map((blog, index) => {
+            const {
+              image: { url, alt },
+              title,
+              pubDate,
+              author,
+              category,
+            } = blog.frontmatter;
+
+            return (
+              <BlogPost
+                title={title}
+                alt={alt}
+                datepublished={pubDate}
+                author={author}
+                category={category}
+                blogUrl={blog.url!}
+              />
+            );
+          })
       }
     </section>
   </Container>
